@@ -5,27 +5,35 @@
 <form action="/employees/{{employee.id}}?_method=PATCH" method="POST" class"form-inline" style="margin: 10px 0px 20px;">
 
 <div class="form-row">
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-3">
     <label>First Name</label>
     <input type="text" class="form-control" name='firstName' value='{{employee.firstName}}'>
   </div>
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-3">
     <label>Last Name</label>
     <input type="text" class="form-control" name='lastName' value='{{employee.lastName}}'>
   </div>
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-3">
+    <label>Position</label>
+    <input type="text" class="form-control" name='position' value='{{employee.position}}'>
+  </div>
+  <div class="form-group col-md-3">
     <label>Nickname(s)</label>
     <input type="text" class="form-control" name='nicknames' value='{{employee.nicknames}}'>
   </div>
 </div>
-  <button class="btn btn-outline-success">Update</button>
+  <button class="btn btn-outline-success">Update {{employee.firstName}}</button>
 </form>
 
-<a href="/employees"><button style="margin: 10px 0px 20px;" class="btn btn-outline-secondary">Cancel</button></a>
 
-<form style="margin:10px 0px 20px;" action="/employees/{{employee.id}}?_method=DELETE" method="POST">
+<form style="margin:10px 0px;" action="/employees/{{employee.id}}?_method=DELETE" method="POST">
   <button class="btn btn-danger">Fire {{employee.firstName}}</button>
 </form>
+
+<a href="/employees">
+  <button style="margin: 10px 0px 20px;" class="btn btn-outline-secondary">Cancel</button>
+</a>
+
 
 <a href="/employees">
   <p>&laquo; Back to all employees</p>

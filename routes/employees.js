@@ -21,7 +21,7 @@ app.get('/:id', (req, res, next) => {
 
 app.post('/', (req, res, next) => {
   Employee.create(req.body)
-    .then(() => res.redirect(`/employee/${employee.id}`))
+    .then((employee) => res.redirect(`/employees/${employee.id}`))
     .catch(next)
 })
 
@@ -38,6 +38,6 @@ app.patch('/:id', (req, res, next) => {
       Object.assign(employee, req.body)
       return employee.save()
     })
-    .then(() => res.redirect('/employees'))
+    .then((employee) => res.redirect('/employees'))
     .catch(next)
 })

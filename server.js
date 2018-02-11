@@ -20,14 +20,13 @@ app.use('/vendor', express.static(path.join(__dirname, 'node_modules')));
 
 app.use((req, res, next) => {
   res.locals.path = req.url
-  let employeeCount, nickCount
+  let nickCount;
   Employee.findAll()
     .then(employees => {
-      employeeCount = employees.length;
+      res.locals.employeeCount = employees.length;
       nickCount = employees.reduce((memo, employee) => {
         return memo += employee.nicknames.length
       }, 0)
-      res.locals.employeeCount = employeeCount
       res.locals.nickCount = nickCount
       next()
     })
@@ -41,7 +40,7 @@ app.get('/', (req, res, next) => {
 })
 
 app.use((err, req, res, next) => {
-  res.status(404).render('error', {title: 'Error', error: err, statusCode: 404})
+  res.sendStatus(404).render('error', {title: 'Error', error: err, statusCode: 404})
 })
 
 const port = process.env.PORT || 3000;

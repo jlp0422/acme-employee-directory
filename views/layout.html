@@ -9,10 +9,10 @@
   <!-- <script src="main.js"></script> -->
 </head>
 <body>
-  <div class="container">
+  <div class="container" style="margin-bottom:40px">
     <h1>Acme Employee Directory</h1>
-    <h2>{{ title }}</h2>
-    <h6>We are a growing company with <span class="badge badge-primary">{{employeeCount}}</span> employees and <span class="badge badge-primary">{{nickCount}}</span> nicknames</h6>
+    <h2 style="margin:5px 0px 10px;">{{ title }}</h2>
+    <h6>We are a growing company with <span class="badge badge-info">{{employeeCount}}</span> employees and <span class="badge badge-info">{{nickCount}}</span> nicknames</h6>
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a style="{%if path === '/'%}font-weight:bold{% endif %}" href="/" class="nav-link {%if path === '/' %}active{% endif %}">Home</a>
