@@ -18,7 +18,10 @@
         <a style="{%if path === '/'%}font-weight:bold{% endif %}" href="/" class="nav-link {%if path === '/' %}active{% endif %}">Home</a>
       </li>
       <li class="nav-item">
-        <a style="{%if path === '/employees'%}font-weight:bold{% endif %}" href="/employees" class="nav-link {%if path === '/employees' %}active{% endif %}">Employees</a>
+        <a style="{% set regExp = r/employees\/?\d?/ %}
+        {%if regExp.test(path)%}font-weight:bold{% endif %}" href="/employees" class="nav-link
+        {% set regExp = r/employees\/?\d?/ %}
+        {%if regExp.test(path)%}active{% endif %}">Employees</a>
       </li>
     </ul>
     {% block content %}

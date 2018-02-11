@@ -37,7 +37,6 @@ app.use((req, res, next) => {
 app.use('/employees', require('./routes/employees'));
 
 app.get('/', (req, res, next) => {
-  console.log(db)
   res.render('index', {title: 'Home'})
 })
 
