@@ -1,0 +1,23 @@
+{% extends './layout.html' %}
+
+
+{% block content %}
+
+<form action="/employees/{{employee.id}}" method='POST'>
+  <input type="text" name='firstName' placeholder='first name'>
+  <input type="text" name='lastName' placeholder='last name'>
+  <input type="text" name='nicknames' placeholder='nickname'>
+  <button class="btn btn-outline-primary">Create</button>
+</form>
+
+
+<ul>
+  {% for employee in employees %}
+  <li>
+    <a href="/employees/{{employee.id}}">{{employee.firstName}} {{employee.lastName}}</a>
+    <p>{{employee.nicknames}}</p>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

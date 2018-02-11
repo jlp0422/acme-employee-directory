@@ -1,0 +1,17 @@
+{% extends './layout.html' %}
+
+{% block content %}
+
+<form action="/employees/{{employee.id}}?_method=PATCH" method="POST">
+  <input type="text" name='firstName' value='{{employee.firstName}}'>
+  <input type="text" name='lastName' value='{{employee.lastName}}'>
+  <input type="text" name='nicknames' value='{{employee.nicknames}}'>
+  <button class="btn btn-outline-success">Update</button>
+</form>
+
+<form action="/employees/{{employee.id}}?_method=DELETE" method="POST">
+  <button class="btn btn-outline-danger">Delete</button>
+</form>
+
+
+{% endblock %}
