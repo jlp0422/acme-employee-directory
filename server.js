@@ -41,7 +41,7 @@ app.get('/', (req, res, next) => {
 })
 
 app.use((err, req, res, next) => {
-  res.render('error', {title: 'Error', error: err})
+  res.status(404).render('error', {title: 'Error', error: err, statusCode: 404})
 })
 
 const port = process.env.PORT || 3000;

@@ -8,7 +8,7 @@ const sync = () => {
 const seed = () => {
   return Promise.all([
     Employee.create({ firstName: 'Jeremy', lastName: 'Philipson', nicknames: 'JP, JPhil' }),
-    Employee.create({ firstName: 'Joe', lastName: 'Love', nicknames: 'J-Love' }),
+    Employee.create({ firstName: 'Jake', lastName: 'Love', nicknames: 'J-Love' }),
     Employee.create({ firstName: 'Steve', lastName: 'Collins', nicknames: 'Stevie' })
   ])
 }

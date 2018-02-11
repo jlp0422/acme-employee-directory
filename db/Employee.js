@@ -13,9 +13,7 @@ const Employee = conn.define('employee', {
       const nicks = val.split(',');
       let nickArray = []
       nicks.forEach((nick) => {
-        if (nick.length) {
-          nickArray.push(nick)
-        }
+        if (nick.length) nickArray.push(nick)
       })
       this.setDataValue('nicknames', nickArray)
     }

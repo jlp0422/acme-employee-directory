@@ -21,7 +21,7 @@ app.get('/:id', (req, res, next) => {
 
 app.post('/', (req, res, next) => {
   Employee.create(req.body)
-    .then(() => res.redirect('/employees'))
+    .then(() => res.redirect(`/employee/${employee.id}`))
     .catch(next)
 })
 
