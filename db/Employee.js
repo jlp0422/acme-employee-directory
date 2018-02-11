@@ -10,8 +10,14 @@ const Employee = conn.define('employee', {
     type: Sequelize.ARRAY(Sequelize.STRING),
     defaultValue: [],
     set: function(val) {
-      const nicks = val.split(',')
-      this.setDataValue('nicknames', nicks)
+      const nicks = val.split(',');
+      let nickArray = []
+      nicks.forEach((nick) => {
+        if (nick.length) {
+          nickArray.push(nick)
+        }
+      })
+      this.setDataValue('nicknames', nickArray)
     }
   }
 }, {
