@@ -6,6 +6,7 @@ const Sequelize = conn.Sequelize
 const Employee = conn.define('employee', {
   firstName: Sequelize.STRING,
   lastName: Sequelize.STRING,
+  position: Sequelize.STRING,
   nicknames: {
     type: Sequelize.ARRAY(Sequelize.STRING),
     defaultValue: [],
@@ -22,6 +23,7 @@ const Employee = conn.define('employee', {
     getterMethods: {
       fullName: function () {
         return `${this.getDataValue('firstName')} ${this.getDataValue('lastName')}`
+        // same as: return `${this.firstName} ${this.lastName}`
       }
     }
   }

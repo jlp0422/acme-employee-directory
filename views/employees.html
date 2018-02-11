@@ -15,14 +15,15 @@
       <input type="text" class="form-control"name='nicknames' placeholder='Nickname(s)'>
     </div>
   </div>
-  <button class="btn btn-primary">Create</button>
+  <button class="btn btn-primary">Create Employee</button>
 </form>
 
-
+<h4>Current Employees</h4>
 <ul class="list-group">
   {% for employee in employees %}
   <li class="list-group-item">
     <a href="/employees/{{employee.id}}">{{employee.firstName}} {{employee.lastName}}</a>
+    <br>{{employee.position}}
   </li>
   {% endfor %}
 </ul>
