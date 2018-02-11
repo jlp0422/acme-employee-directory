@@ -3,19 +3,26 @@
 
 {% block content %}
 
-<form action="/employees/{{employee.id}}" method='POST'>
-  <input type="text" name='firstName' placeholder='first name'>
-  <input type="text" name='lastName' placeholder='last name'>
-  <input type="text" name='nicknames' placeholder='nickname'>
-  <button class="btn btn-outline-primary">Create</button>
+<form action="/employees/{{employee.id}}" method='POST' style="margin: 10px 0px 20px;">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" name='firstName' placeholder='First name'>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" name='lastName' placeholder='Last name'>
+    </div>
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control"name='nicknames' placeholder='Nickname(s)'>
+    </div>
+  </div>
+  <button class="btn btn-primary">Create</button>
 </form>
 
 
-<ul>
+<ul class="list-group">
   {% for employee in employees %}
-  <li>
+  <li class="list-group-item">
     <a href="/employees/{{employee.id}}">{{employee.firstName}} {{employee.lastName}}</a>
-    <p>{{employee.nicknames}}</p>
   </li>
   {% endfor %}
 </ul>

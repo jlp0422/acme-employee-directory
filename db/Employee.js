@@ -10,14 +10,8 @@ const Employee = conn.define('employee', {
     type: Sequelize.ARRAY(Sequelize.STRING),
     defaultValue: [],
     set: function(val) {
-      // throw 'fizz buzz';
-      if(typeof val === 'string') {
-        const nicks = val.split(',')
-        this.setDataValue('nicknames', nicks)
-      }
-      else {
-        this.setDataValue('nicknames', [])
-      }
+      const nicks = val.split(',')
+      this.setDataValue('nicknames', nicks)
     }
   }
 }, {
@@ -26,7 +20,8 @@ const Employee = conn.define('employee', {
         return `${this.getDataValue('firstName')} ${this.getDataValue('lastName')}`
       }
     }
-  })
+  }
+)
 
 module.exports = Employee
 

@@ -2,15 +2,28 @@
 
 {% block content %}
 
-<form action="/employees/{{employee.id}}?_method=PATCH" method="POST">
-  <input type="text" name='firstName' value='{{employee.firstName}}'>
-  <input type="text" name='lastName' value='{{employee.lastName}}'>
-  <input type="text" name='nicknames' value='{{employee.nicknames}}'>
+<form action="/employees/{{employee.id}}?_method=PATCH" method="POST" class"form-inline" style="margin: 10px 0px 20px;">
+
+<div class="form-row">
+  <div class="form-group col-md-4">
+    <label>First Name</label>
+    <input type="text" class="form-control" name='firstName' value='{{employee.firstName}}'>
+  </div>
+  <div class="form-group col-md-4">
+    <label>Last Name</label>
+    <input type="text" class="form-control" name='lastName' value='{{employee.lastName}}'>
+  </div>
+  <div class="form-group col-md-4">
+    <label>Nickname(s)</label>
+    <input type="text" class="form-control" name='nicknames' value='{{employee.nicknames}}'>
+  </div>
+</div>
   <button class="btn btn-outline-success">Update</button>
 </form>
 
+
 <form action="/employees/{{employee.id}}?_method=DELETE" method="POST">
-  <button class="btn btn-outline-danger">Delete</button>
+  <button class="btn btn-danger">Delete</button>
 </form>
 
 

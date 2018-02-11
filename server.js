@@ -20,15 +20,25 @@ app.use('/vendor', express.static(path.join(__dirname, 'node_modules')));
 
 app.use((req, res, next) => {
   res.locals.path = req.url
-  next()
+  let employeeCount, nickCount
+  Employee.findAll()
+    .then(employees => {
+      employeeCount = employees.length;
+      nickCount = employees.reduce((memo, employee) => {
+        return memo += employee.nicknames.length
+      }, 0)
+      res.locals.employeeCount = employeeCount
+      res.locals.nickCount = nickCount
+      next()
+    })
+    .catch(next)
 })
 
 app.use('/employees', require('./routes/employees'));
 
 app.get('/', (req, res, next) => {
-  Employee.findAll()
-  .then((employees) => res.render('index', {title: 'Home', employees}))
-  .catch(next)
+  console.log(db)
+  res.render('index', {title: 'Home'})
 })
 
 app.use((err, req, res, next) => {
